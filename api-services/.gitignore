@@ -1,0 +1,8 @@
+.now
+node_modules
+
+# Environment Variables
+.vercel
+.vscode
+.env.local
+yarn-error.log
