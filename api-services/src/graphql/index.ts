@@ -10,10 +10,8 @@ export const resolvers = {
 }
 
 export const context = async (ctx: any) => {
-  // console.log('ctx:', ctx.req.headers, ctx.req.cookies)
-  // console.log('ctx:', ctx)
   return {
     cookie: ctx.res.cookie,
-    ...ctx,
+    cookies: ctx.req.cookies,
   }
 }

@@ -1,9 +1,8 @@
 const MAX_AGE = 60 * 60 * 8 // 8 hours
 
 export async function getCookie(ctx: any) {
-  console.log('gql/getCookie', ctx.req.headers.cookies, ctx.req.cookies)
-
-  return { token: '???' }
+  console.log('gql/getCookie', ctx.cookies)
+  return ctx.cookies
 }
 
 export function setCookie(args: any, ctx: any) {

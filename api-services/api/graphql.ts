@@ -22,10 +22,7 @@ const apolloServer = new ApolloServer({
 
 const optionsHandler = (req: NowRequest, res: NowResponse) => {
   if (req.method === 'OPTIONS') {
-    // res.end()
-    // res.status(200).send({ ok: true })
-    send(res, 200, 'ok!')
-    return
+    return send(res, 200, 'ok!')
   }
   return apolloServer.createHandler({
     path: '/api/graphql',
@@ -34,4 +31,4 @@ const optionsHandler = (req: NowRequest, res: NowResponse) => {
 
 const handlerWithCookies = withCookies(optionsHandler)
 
-export default cors((req, res) => handlerWithCookies(req, res))
+export default cors(handlerWithCookies)

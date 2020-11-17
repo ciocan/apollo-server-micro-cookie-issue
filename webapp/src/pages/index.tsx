@@ -6,7 +6,6 @@ import { API_URL } from '../lib/config'
 
 const fetcher = (url: string, options?: any) =>
   fetch(url, {
-    mode: 'cors',
     credentials: 'include',
     ...options,
   })
@@ -27,10 +26,7 @@ const GET_COOKIE = gql`
 `
 
 const client = new GraphQLClient(`${API_URL}/api/graphql`, {
-  headers: {
-    mode: 'cors',
-    credentials: 'include',
-  },
+  credentials: 'include',
 })
 
 export default function Home(): JSX.Element {
@@ -60,7 +56,6 @@ export default function Home(): JSX.Element {
     const data = await client.request(GET_COOKIE)
     setGqlValue({ ...gqlValue, getCookie: data.getCookie.token })
   }, [gqlValue])
-
   return (
     <VStack justifyContent="center" m="4">
       <Text>with fetch request</Text>
